@@ -1,0 +1,51 @@
+version: "3"
+services:
+  web_server:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
+    depends_on:
+      - web
+      - web-login
+      - web-recommendation
+  db:
+    build: ./cassandra
+    container_name: cassandra-docker-1
+    ports:
+      - "9843:9042"
+    volumes:
+      - db_volume:/var/lib/data
+  db-redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - db_volume:/var/lib/data-redis
+  web:
+    build: ./app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    links:
+      - db
+  web-login:
+    build: ./Login-API/app
+    ports:
+      - "5001:5001"
+    depends_on:
+      - db-redis
+    links:
+      - db-redis
+  web-recommendation:
+    build: ./recommendation
+    ports:
+      - "5002:5002"
+volumes:
+  db_volume:
