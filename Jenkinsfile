@@ -13,7 +13,7 @@ pipeline {
             steps {
                 dir("") {
                         sh 'pwd'
-                        sh "/usr/local/bin/docker-compose  up --build -d"
+                        sh "cd pwd && /usr/local/bin/docker-compose  up --build -d"
                    }
 //                    sh "pwd && cd pwd && docker-compose up --build -d"
 //                 sh 'pwd'
