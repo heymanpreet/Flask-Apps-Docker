@@ -14,7 +14,7 @@ pipeline {
 //                 dir("") {
 //                         sh "pwd && docker-compose up --build -d"
 //                    }
-                   sh "pwd && docker-compose up --build -d"
+                   sh "pwd/ && docker-compose up --build -d"
 //                 sh 'pwd'
 //                 sh 'cd ~'
 //                 sh 'cd /var/jenkins_home/workspace/Flask-Jenkins-build'
