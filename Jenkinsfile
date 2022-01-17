@@ -18,7 +18,7 @@ pipeline {
 //                    sh "pwd && cd pwd && docker-compose up --build -d"
 //                 sh 'pwd'
 //                 sh 'cd ~'
-                sh '/usr/local/bin/docker-compose up --build -d'
+                sh '/usr/local/bin/docker-compose -f /var/jenkins_home/workspace/Flask-Jenkins-build/docker-compose.yaml  up --build -d'
 //                 sh 'pwd'
 //                 sh 'docker-compose up --build -d'
                 echo "Deployed"
