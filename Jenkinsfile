@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 //  Building new image
-                git url: 'https://github.com/russmckendrick/jenkins-docker-example.git'
+                git url: 'https://github.com/heymanpreet/Flask-Apps-Docker.git'
 
                 echo "Image built and pushed to repository"
             }
