@@ -12,6 +12,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 dir("/var/jenkins_home/workspace/Flask-Jenkins-build") {
+                        sh 'pwd'
                         sh "docker-compose up --build -d"
                    }
 //                    sh "pwd && cd pwd && docker-compose up --build -d"
