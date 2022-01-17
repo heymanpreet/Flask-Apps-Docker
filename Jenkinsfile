@@ -12,7 +12,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'pwd'
-                sh 'cd Flask-Apps-Docker'
+                sh 'cd Flask-Jenkins-build'
                 sh 'docker-compose up'
                 echo "Deployed"
             }
