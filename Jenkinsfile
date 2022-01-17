@@ -14,7 +14,7 @@ pipeline {
 //                 dir("") {
 //                         sh 'pwd'
 //                         sh "/usr/local/bin/docker-compose  up --build -d"
-//                    }
+//                    } 
                 sh "docker-compose  up --build -d"
                 echo "Deployed"
             }
