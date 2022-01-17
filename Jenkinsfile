@@ -13,8 +13,8 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'cd /var/jenkins_home/workspace/Flask-Jenkins-build'
-                sh 'docker-compose up'
                 sh 'pwd'
+                sh 'docker-compose up'
                 echo "Deployed"
             }
         }
