@@ -11,6 +11,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                dir("folder") {
+                        sh "pwd"
+                   }
                 sh 'pwd'
                 sh 'cd ~'
                 sh 'cd /var/jenkins_home/workspace/Flask-Jenkins-build'
