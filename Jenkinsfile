@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                docker-compose up --build -d
+                sh 'docker-compose up --build -d'
                 echo "Deployed"
             }
         }
