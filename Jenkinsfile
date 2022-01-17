@@ -11,16 +11,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                dir("") {
-                        sh 'pwd'
-                        sh "/usr/local/bin/docker-compose  up --build -d"
-                   }
-//                    sh "pwd && cd pwd && docker-compose up --build -d"
-//                 sh 'pwd'
-//                 sh 'cd ~'
-//                 sh 'cd Flask-Jenkins-build1 && /usr/local/bin/docker-compose  up --build -d'
-//                 sh 'pwd'
-//                 sh 'docker-compose up --build -d'
+//                 dir("") {
+//                         sh 'pwd'
+//                         sh "/usr/local/bin/docker-compose  up --build -d"
+//                    }
+                sh "docker-compose  up --build -d"
                 echo "Deployed"
             }
         }
