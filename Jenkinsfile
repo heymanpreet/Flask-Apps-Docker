@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                dir("/") {
+                dir("pwd") {
                         sh "docker-compose up --build -d"
                    }
 //                    sh "pwd && cd pwd && docker-compose up --build -d"
