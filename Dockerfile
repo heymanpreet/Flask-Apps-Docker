@@ -8,10 +8,10 @@ RUN add-apt-repository \
    $(lsb_release -cs) \
    stable"
 RUN apt-get update  -qq \
-    && apt-get install docker-ce=17.12.1~ce-0~debian -y
+    && apt -y install docker-ce docker-ce-cli
 RUN curl -L \  
   "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" \  
   -o /usr/local/bin/docker-compose \  
   && chmod +x /usr/local/bin/docker-compose  
-RUN usermod -aG docker jenkins
+# RUN usermod -aG docker jenkins
 USER jenkins
