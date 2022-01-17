@@ -11,6 +11,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                sh 'pwd'
+                sh 'cd Flask-Apps-Docker'
                 sh 'docker-compose up'
                 echo "Deployed"
             }
