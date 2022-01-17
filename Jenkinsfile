@@ -11,10 +11,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-//                 dir("") {
-//                         sh 'pwd'
-//                         sh "cd pwd && /usr/local/bin/docker-compose  up --build -d"
-//                    }
+                dir("") {
+                        sh 'pwd'
+                        sh "/usr/local/bin/docker-compose  up --build -d"
+                   }
 //                    sh "pwd && cd pwd && docker-compose up --build -d"
 //                 sh 'pwd'
 //                 sh 'cd ~'
