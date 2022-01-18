@@ -14,5 +14,6 @@ RUN apt-get update  -qq \
 #   -o /usr/local/bin/docker-compose \  
 #   && chmod +x /usr/local/bin/docker-compose  
 RUN curl -L https://github.com/docker/compose/releases/download/1.25.3/run.sh -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
-# RUN usermod -aG docker jenkins
-USER jenkins
+RUN chmod +x /usr/local/bin/docker-compose
+#RUN usermod -aG docker jenkins
+#USER jenkins
