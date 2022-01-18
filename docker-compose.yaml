@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: nginx/Dockerfile
     volumes:
-      - ./nginx:/etc/nginx/nginx.conf:ro
+      - ./nginx:/etc/nginx/:ro
     ports:
       - 81:81
     depends_on:
