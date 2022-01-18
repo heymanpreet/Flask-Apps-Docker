@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: nginx/Dockerfile
     volumes:
-      - /var/jenkins_home/workspace/Flask-Jenkins-build1/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf/conf.d
     ports:
       - 81:81
     depends_on:
