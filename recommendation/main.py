@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS, cross_origin
 # libraries for making count matrix and similarity matrix
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -24,6 +25,8 @@ def rcmd(m):
     # check if data and sim are already assigned
     data, sim = create_sim()
     # check if the movie is in our database or not
+    print("Movie",m)
+    # print("data['movie_title']",data['movie_title'].unique())
     if m not in data['movie_title'].unique():
         return('This movie is not in our database.\nPlease check if you spelled it correct.')
     else:
@@ -39,19 +42,19 @@ def rcmd(m):
 
         # taking top 1- movie scores
         # not taking the first index since it is the same movie
-        selectedMovieObj = {'title': data['movie_title'][lst[0][0]], 'imdb_url': data['movie_imdb_link'][lst[0][0]]}
+        selectedMovieObj = {'title': data['movie_title'][lst[0][0]], 'imdb_url': data['movie_imdb_link'][lst[0][0]],'video':data['movie_video'][lst[0][0]]}
         lst = lst[1:11]
         print("r movie title", lst);
 
         # making an empty list that will containing all 10 movie recommendations
         l = []
 
-        # recommendedMoviesObj = [];
+        recommendedMoviesObj = [];
         recommendedMoviesObj.append(selectedMovieObj)
         print("reccccc",recommendedMoviesObj)
         for i in range(len(lst)):
             a = lst[i][0]
-            obj = {'title': data['movie_title'][a], 'imdb_url':data['movie_imdb_link'][a]};
+            obj = {'title': data['movie_title'][a], 'imdb_url':data['movie_imdb_link'][a], 'video':data['movie_video'][a]};
             recommendedMoviesObj.append(obj);
             l.append(data['movie_title'][a])
         print(recommendedMoviesObj)
@@ -60,12 +63,14 @@ def rcmd(m):
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/home", methods=["GET"])
 def home():
     return render_template('home.html')
 
 @app.route("/recommend", methods=["GET"])
+#@cross_origin(origin='*')
 def recommend():
     movie = request.args.get('movie')
     r = rcmd(movie)
