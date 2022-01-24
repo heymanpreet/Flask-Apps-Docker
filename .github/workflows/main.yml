@@ -53,19 +53,19 @@ jobs:
         
       - name: docker tag
         run: |
-          docker tag manpreet94/python-catalogue
-          docker tag manpreet94/cassandra-catalogue
-          docker tag manpreet94/recommendation-python
-          docker tag manpreet94/login-python
-          docker tag manpreet94/nginx-server
+          docker tag python-catalogue manpreet94/python-catalogue
+          docker tag cassandra-catalogue manpreet94/cassandra-catalogue
+          docker tag recommendation-python manpreet94/recommendation-python
+          docker tag login-python manpreet94/login-python
+          docker tag manpreet94/nginx-server manpreet94/nginx-server
         
       - name: docker push
         run: |
-          docker push manpreet94/python-catalogue:1.0.0
-          docker push manpreet94/cassandra-catalogue:1.0.0
-          docker push manpreet94/recommendation-python:1.0.0
-          docker push manpreet94/login-python:1.0.0
-          docker push manpreet94/nginx-server:1.0.0
+          docker push manpreet94/python-catalogue
+          docker push manpreet94/cassandra-catalogue
+          docker push manpreet94/recommendation-python
+          docker push manpreet94/login-python
+          docker push manpreet94/nginx-server
 
       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
