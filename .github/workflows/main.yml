@@ -51,13 +51,13 @@ jobs:
       - name: Checking if all is going well!
         run: echo All Built, Lets push to Docker Hub!
         
-      - name: docker tag
-        run: |
-          docker tag python-catalogue manpreet94/python-catalogue
-          docker tag cassandra-catalogue manpreet94/cassandra-catalogue
-          docker tag recommendation-python manpreet94/recommendation-python
-          docker tag login-python manpreet94/login-python
-          docker tag manpreet94/nginx-server manpreet94/nginx-server
+#       - name: docker tag
+#         run: |
+#           docker tag python-catalogue manpreet94/python-catalogue
+#           docker tag cassandra-catalogue manpreet94/cassandra-catalogue
+#           docker tag recommendation-python manpreet94/recommendation-python
+#           docker tag login-python manpreet94/login-python
+#           docker tag manpreet94/nginx-server manpreet94/nginx-server
         
       - name: docker push
         run: |
