@@ -49,7 +49,7 @@ jobs:
         
       # Checking the Build
       - name: Checking if all is going well!
-        run: All Built, Lets push to Docker Hub!
+        run: echo All Built, Lets push to Docker Hub!
         
       - name: docker push
         run: |
