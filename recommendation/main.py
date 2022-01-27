@@ -26,7 +26,6 @@ def rcmd(m):
     data, sim = create_sim()
     # check if the movie is in our database or not
     print("Movie",m)
-    # print("data['movie_title']",data['movie_title'].unique())
     if m not in data['movie_title'].unique():
         return('This movie is not in our database.\nPlease check if you spelled it correct.')
     else:
